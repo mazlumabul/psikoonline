@@ -1,0 +1,13 @@
+package scorpion.psikonline.service.abstracts;
+
+import java.util.List;
+
+import scorpion.psikonline.model.PsychologistDetails;
+
+public interface PsychologistDetailsImp {
+	List<PsychologistDetails> getAllpsychologistDetails();
+	PsychologistDetails createPsychologistDetails(PsychologistDetails psychologistDetails);
+	PsychologistDetails updatePsychologistDetails(PsychologistDetails psychologistDetails);
+	Boolean deleteUser(int id); 
+}
+

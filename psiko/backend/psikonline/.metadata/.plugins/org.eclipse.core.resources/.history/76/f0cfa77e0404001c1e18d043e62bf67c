@@ -1,0 +1,18 @@
+package scorpion.psikonline.model;
+
+import java.util.UUID;
+
+import javax.persistence.Entity;
+
+import lombok.Data;
+
+@Data
+@Entity
+public class PsychologistDetails {
+
+	private UUID id;
+	private UUID grade_id;
+	private String photo;
+	private String sessionFee;
+	private String resume;
+}

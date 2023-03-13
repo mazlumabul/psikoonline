@@ -1,0 +1,9 @@
+server.port= 8080
+server.servlet.context-path= /psikonline
+spring.data.mongodb.uri= mongodb://172.16.26.3/psikonline
+
+spring.datasource.url= jdbc:postgresql://172.16.26.3/psikonline
+spring.datasource.username= postgres
+spring.datasource.password= postgres
+
+spring.jpa.generate-ddl=true

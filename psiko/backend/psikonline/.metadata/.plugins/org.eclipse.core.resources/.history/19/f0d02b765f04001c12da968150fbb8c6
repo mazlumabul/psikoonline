@@ -1,0 +1,14 @@
+package scorpion.psikonline.service.abstracts;
+
+import java.util.List;
+
+import scorpion.psikonline.model.Grade;
+
+
+public interface GradeImp {
+
+	List<Grade> getAllUser();
+	Grade createUser(Grade grade);
+	Grade updateUser(Grade grade);
+	Boolean deleteUser(int id); 
+}

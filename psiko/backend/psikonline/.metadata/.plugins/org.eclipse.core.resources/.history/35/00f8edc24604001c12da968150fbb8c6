@@ -1,0 +1,53 @@
+package scorpion.psikonline.service;
+
+import java.util.List;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import scorpion.psikonline.dtos.UserInputDto;
+import scorpion.psikonline.dtos.UserOutputDto;
+import scorpion.psikonline.model.User;
+import scorpion.psikonline.repository.UserRepository;
+import scorpion.psikonline.service.abstracts.UserInterFace;
+
+@Service
+public class UserService implements UserInterFace {
+
+	@Autowired
+	UserRepository userRepository;
+	ModelMapper modelMapper;
+	
+	@Override
+	public List<UserOutputDto> getAllUser(){
+		userRepository.findAll().stream().map(element->modelMapper.map(element, UserOutputDto.class));
+		 return null;
+	}
+	
+	@Override
+	public UserInputDto createUser(UserInputDto userInputDto) {
+		User user=modelMapper.map(userInputDto, User.class);
+		return userRepository.save(user);
+	}
+
+	@Override
+	public Boolean deleteUser(int id) {
+		userRepository.deleteById(id);
+		return true;
+	}
+
+	@Override
+	public User updateUser(User user) {
+		User newUser=userRepository.getById(user.getId());
+		newUser.setTckn(user.getTckn());
+		newUser.setName(user.getName());
+		newUser.setLastName(user.getLastName());
+		newUser.setPhone(user.getPhone());
+		newUser.setEmail(user.getEmail());
+		newUser.setPassword(user.getPassword());
+		return userRepository.save(newUser);
+	}
+	
+	
+}

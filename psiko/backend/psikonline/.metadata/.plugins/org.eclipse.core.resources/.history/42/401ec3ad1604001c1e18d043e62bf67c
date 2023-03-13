@@ -1,0 +1,9 @@
+package scorpion.psikonline.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import scorpion.psikonline.model.PsychologistDetails;
+
+public interface PsychologistDetailsRepository extends JpaRepository<PsychologistDetails, String>{
+
+}

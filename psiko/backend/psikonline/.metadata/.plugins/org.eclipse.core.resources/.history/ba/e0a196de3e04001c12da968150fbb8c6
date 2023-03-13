@@ -1,0 +1,26 @@
+package scorpion.psikonline.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import scorpion.psikonline.model.User;
+import scorpion.psikonline.repository.UserRepository;
+
+@Service
+public class UserService {
+
+	@Autowired
+	UserRepository userRepository;
+	
+	public List<User> getAllUser(){
+		return userRepository.findAll();
+	}
+	
+	public User createUser(User user) {
+		return userRepository.save(user);
+	}
+	
+	
+}

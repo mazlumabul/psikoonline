@@ -1,0 +1,13 @@
+package scorpion.psikonline;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class PsikonlineApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PsikonlineApplication.class, args);
+	}
+
+}

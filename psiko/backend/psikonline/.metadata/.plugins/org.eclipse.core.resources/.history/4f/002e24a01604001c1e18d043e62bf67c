@@ -1,0 +1,29 @@
+package scorpion.psikonline.model;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import lombok.Data;
+
+@Data
+@Entity
+public class PsychologistDetails {
+
+	@Id
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name="uuid", strategy = "uuid2")
+	private String id;
+	
+	@OneToMany
+	private List<Grade> grade;
+	
+	private String photo;
+	private String sessionFee;
+	private String resume;
+}

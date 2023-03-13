@@ -1,0 +1,42 @@
+package scorpion.psikonline.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import scorpion.psikonline.model.Grade;
+import scorpion.psikonline.model.User;
+import scorpion.psikonline.repository.GradeRepository;
+import scorpion.psikonline.service.abstracts.GradeImp;
+
+@Service
+public class GradeService implements GradeImp {
+
+	@Autowired
+	GradeRepository gradeRepository;
+	
+	public List<Grade> getAllGrade()
+	{
+		return gradeRepository.findAll();
+	}
+	
+	public Grade createGrade(Grade grade)
+	{
+		return gradeRepository.save(grade);
+	}
+
+	@Override
+	public Grade updateGrade(Grade grade) {
+		Grade newGrade=gradeRepository.getById(grade.getId());
+		newGrade.setGradeName(grade.getGradeName());
+		return gradeRepository.save(newGrade);
+	}
+
+	@Override
+	public Boolean deleteGrade(int id) {
+		gradeRepository.deleteById(id);
+		return true;
+	}
+	
+}

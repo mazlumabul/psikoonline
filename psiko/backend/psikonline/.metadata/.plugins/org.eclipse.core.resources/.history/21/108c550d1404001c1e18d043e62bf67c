@@ -1,0 +1,32 @@
+package scorpion.psikonline.model;
+
+
+import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name="users")
+public class User {
+	
+	@Id
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name="uuid", strategy = "uuid2")
+	private String id;
+	private String tckn;
+	private String name;
+	private String lastName;
+	private String phone;
+	private String email;
+	private String password;
+	private String role;
+}

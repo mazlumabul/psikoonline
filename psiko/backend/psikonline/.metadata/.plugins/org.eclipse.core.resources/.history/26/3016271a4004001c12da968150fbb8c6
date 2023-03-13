@@ -1,0 +1,11 @@
+package scorpion.psikonline.service.abstracts;
+
+import java.util.List;
+
+import scorpion.psikonline.model.User;
+
+public interface UserInterFace {
+	List<User> getAllUser();
+	User createUser(User user);
+	Boolean deleteUser(int id); 
+}

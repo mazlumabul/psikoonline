@@ -1,0 +1,10 @@
+package scorpion.psikonline.dtos;
+
+public class UserOutputDto {
+
+	private String tckn;
+	private String name;
+	private String lastName;
+	private String phone;
+	private String email;
+}

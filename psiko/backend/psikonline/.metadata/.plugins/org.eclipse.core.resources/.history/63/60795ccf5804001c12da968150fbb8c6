@@ -1,0 +1,15 @@
+package scorpion.psikonline.repository;
+
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import scorpion.psikonline.model.User;
+
+public interface UserRepository extends JpaRepository<User, Integer>{
+
+	@Query("SELECT role FROM users WHERE role=psychologist")
+	List<User> getByUserRolePsychologist();
+}

@@ -1,0 +1,21 @@
+package scorpion.psikonline.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import scorpion.psikonline.model.Grade;
+import scorpion.psikonline.repository.GradeRepository;
+
+@Service
+public class GradeService {
+
+	@Autowired
+	GradeRepository gradeRepository;
+	
+	public List<Grade> getAllGrade()
+	{
+		return gradeRepository.findAll();
+	}
+}

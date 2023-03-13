@@ -1,0 +1,5 @@
+package scorpion.psikonline.model;
+
+public class User {
+
+}

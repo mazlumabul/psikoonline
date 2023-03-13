@@ -1,0 +1,42 @@
+package scorpion.psikonline.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import scorpion.psikonline.model.PsychologistDetails;
+import scorpion.psikonline.model.User;
+import scorpion.psikonline.repository.PsychologistDetailsRepository;
+import scorpion.psikonline.service.abstracts.PsychologistDetailsImp;
+
+@Service
+public class PsychologistDetailsService implements PsychologistDetailsImp {
+
+	@Autowired
+	PsychologistDetailsRepository psyDetailsRepository;
+
+	@Override
+	public List<PsychologistDetails> getAllPsychologistDetails() {
+		return psyDetailsRepository.findAll();
+	}
+
+	@Override
+	public PsychologistDetails createPsychologistDetails(PsychologistDetails psychologistDetails) {
+		return psyDetailsRepository.save(psychologistDetails);
+	}
+
+	@Override
+	public PsychologistDetails updatePsychologistDetails(PsychologistDetails psychologistDetails) {
+		PsychologistDetails newPsyDetails=psyDetailsRepository.getById(psychologistDetails.getId());
+		newPsyDetails.setPhoto(psychologistDetails.getPhoto());
+		newPsyDetails.setSessionFee(psychologistDetails.getSessionFee());
+		return psyDetailsRepository.save(newPsyDetails);
+	}
+
+	@Override
+	public Boolean deletePsychologistDetails(int id) {
+		psyDetailsRepository.deleteById(id);
+		return true;
+	}
+}
